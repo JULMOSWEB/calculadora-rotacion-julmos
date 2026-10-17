@@ -1,0 +1,13 @@
+CALCULADORA JULMOS — PROTOTIPO V1 (NO PUBLICAR SIN VALIDACIÓN)
+
+1. index.html: calculadora visual, dos modalidades y cálculo ilustrativo.
+2. api/analizar.js: conexión a OpenAI mediante servidor (la clave NO va en el navegador).
+3. package.json y vercel.json: configuración de despliegue.
+
+IMPORTANTE:
+- La estimación de Panamá solo contempla una aproximación de prima de antigüedad. NO incluye indemnización, vacaciones, décimo tercer mes, otras obligaciones ni el efecto de la causa de terminación.
+- El total es un costo parcial estimado y NO debe presentarse como costo legal completo.
+- Los factores de productividad y reclutamiento son supuestos de ejemplo.
+- Antes de publicar: validar fórmulas con asesoría laboral de Panamá, configurar control de abuso y límites de consumo de la API, revisar política de privacidad y enlace de contacto.
+- Para activar la IA en Vercel, configurar variable de entorno OPENAI_API_KEY solo en Vercel.
+- No subir nunca una clave API al repositorio.
