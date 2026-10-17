@@ -27,5 +27,41 @@ $('totalLabel').textContent=modo==='empresa'?'COSTO TOTAL ESTIMADO ANUAL DE ROTA
 last={modalidad:modo,pais,salidas:n,salarioMensual:s,diasVacante:d,antiguedad:a,tipoPuesto:$('tipo').selectedOptions[0].text,tipoSalida:modo==='puesto'?$('salidaTipo').value:'no especificado',costoLaboralParcial:laboral,costoOrganizacional:org,costoTotalParcial:total,advertencia:$('nota').textContent};}
 function setModo(m){modo=m;$('empresaBtn').classList.toggle('active',m==='empresa');$('puestoBtn').classList.toggle('active',m==='puesto');$('empresaFields').classList.toggle('hidden',m!=='empresa');$('puestoFields').classList.toggle('hidden',m!=='puesto');$('rotacionRow').classList.toggle('hidden',m!=='empresa');calc()}
 $('empresaBtn').onclick=()=>setModo('empresa');$('puestoBtn').onclick=()=>setModo('puesto');document.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',calc));
-$('analizar').onclick=async()=>{const btn=$('analizar'),box=$('analisis');btn.disabled=true;btn.textContent='Generando análisis...';box.classList.remove('hidden');box.textContent='Consultando IA...';try{const r=await fetch('/api/analizar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({datos:last})});const j=await r.json();box.textContent=j.analisis||j.error||'No se pudo completar el análisis.'}catch{box.textContent='No se pudo conectar con el análisis de IA.'}finally{btn.disabled=false;btn.textContent='✦ Obtener análisis y recomendaciones con IA'}};calc();
+
+$('analizar').onclick=async()=>{
+  const btn=$('analizar'),box=$('analisis');
+  const clave=JSON.stringify(last);
+  const cacheKey='julmos-analisis-v1:'+clave;
+  const anterior=localStorage.getItem(cacheKey);
+
+  box.classList.remove('hidden');
+
+  if(anterior){
+    box.textContent=anterior;
+    return;
+  }
+
+  btn.disabled=true;
+  btn.textContent='Generando análisis...';
+  box.textContent='Consultando IA...';
+
+  try{
+    const r=await fetch('/api/analizar',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({datos:last})
+    });
+    const j=await r.json();
+    if(!r.ok)throw new Error(j.error||'No se pudo completar el análisis.');
+
+    box.textContent=j.analisis;
+    localStorage.setItem(cacheKey,j.analisis);
+  }catch(e){
+    box.textContent=e.message||'No se pudo conectar con el análisis de IA.';
+  }finally{
+    btn.disabled=false;
+    btn.textContent='✦ Obtener análisis y recomendaciones con IA';
+  }
+};
+calc();
 </script></body></html>
