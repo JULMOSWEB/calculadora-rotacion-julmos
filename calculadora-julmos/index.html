@@ -12,7 +12,7 @@
 <div class="line"><span><b>Reclutamiento y selección</b></span><span>Costos asociados a la búsqueda, evaluación y contratación del talento de reemplazo.</span></div>
 <div class="line"><span><b>Productividad perdida</b></span><span>Impacto estimado de la vacante en la operación, considerando el tiempo necesario para cubrirla y el tipo de posición.</span></div>
 <div class="line"><span><b>Adaptación del reemplazo</b></span><span>Costos asociados a la incorporación, capacitación inicial y curva de aprendizaje del nuevo colaborador.</span></div>
-<p class="warning">Los resultados son estimaciones orientativas basadas en supuestos del modelo Julmos. No constituyen una liquidación laboral ni una valoración financiera exacta. Los importes se presentan en USD; ingresa el salario convertido a USD cuando corresponda.</p>
+<p class="warning">Los resultados son estimaciones orientativas basadas en supuestos del modelo Julmos. No constituyen una liquidación laboral ni una valoración financiera exacta. Ingresa el salario en la moneda local indicada. Todos los resultados se expresan en esa misma moneda, sin conversiones cambiarias.</p>
 <p id="desgloseTipo" class="hidden"></p><div id="desgloseLaboral" class="hidden"></div>
 </section>
 
@@ -22,9 +22,29 @@
 </div>
 <button class="primary" id="analizar">✦ Obtener análisis y recomendaciones con IA</button><div class="analysis hidden" id="analisis" aria-live="polite"></div><div class="cta"><strong>¿Quieres reducir el costo de perder talento?</strong><p>Conversemos sobre cómo Julmos puede ayudarte.</p><a href="https://www.julmos.com/" target="_blank" rel="noopener">Conoce Julmos Consultores ↗</a></div></main>
 <script>
-const $=id=>document.getElementById(id);let modo='empresa',last={};const tasas={administrativa:.35,comercial:.65,operativa:.5,tecnica:.6,gerencial:.7};const usd=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n);const val=id=>Math.max(0,Number($(id).value)||0);
+const $=id=>document.getElementById(id);let modo='empresa',last={};const tasas={administrativa:.35,comercial:.65,operativa:.5,tecnica:.6,gerencial:.7};const monedas={
+ 'Panamá':{codigo:'USD',ejemplo:1500,locale:'es-PA'},
+ 'Costa Rica':{codigo:'CRC',ejemplo:800000,locale:'es-CR'},
+ 'El Salvador':{codigo:'USD',ejemplo:800,locale:'es-SV'},
+ 'Guatemala':{codigo:'GTQ',ejemplo:6000,locale:'es-GT'},
+ 'Honduras':{codigo:'HNL',ejemplo:18000,locale:'es-HN'},
+ 'Nicaragua':{codigo:'NIO',ejemplo:18000,locale:'es-NI'},
+ 'Colombia':{codigo:'COP',ejemplo:3000000,locale:'es-CO'},
+ 'República Dominicana':{codigo:'DOP',ejemplo:45000,locale:'es-DO'},
+ 'ninguno':{codigo:'USD',ejemplo:1500,locale:'es-PA'}
+};
+const monedaActual=()=>monedas[$('pais').value]||monedas.ninguno;
+const usd=n=>{const m=monedaActual();return m.codigo+' '+new Intl.NumberFormat(m.locale,{maximumFractionDigits:0}).format(n)};
+const val=id=>Math.max(0,Number($(id).value)||0);
+function actualizarMoneda(){
+ const m=monedaActual();
+ document.querySelector('label[for="salario"]').textContent='Salario mensual promedio ('+m.codigo+')';
+ $('salario').value=m.ejemplo;
+ calc();
+}
+
 // Estimación orientativa para contratos indefinidos ordinarios, despido sin justa causa.
-// Los salarios se introducen en USD; no se realiza conversión de moneda.
+// Los salarios se introducen en la moneda local; no se realiza conversión de moneda.
 // La modalidad empresa usa una mezcla HIPOTÉTICA, no una tasa estadística observada.
 const mezclaSalidas={voluntaria:.70,involuntaria:.30};
 const dias=(s,n)=>s*n/30;
@@ -115,10 +135,10 @@ function calc(){
  $('nota').textContent=(tienePais?pais+': ':'')+'Estimación simplificada para contratos indefinidos ordinarios. Salida involuntaria supone despido sin justa causa y pago de preaviso cuando se muestra; no contempla despidos justificados, protecciones especiales, convenios, salarios variables, fondos ya pagados ni otras excepciones. Algunos topes y bases legales requieren datos no solicitados. Los importes no son una liquidación legal.';
  $('totalLabel').textContent=modo==='empresa'?'COSTO TOTAL ESTIMADO ANUAL DE ROTACIÓN':'COSTO TOTAL ESTIMADO DE ESTA SALIDA';
  $('avgLabel').textContent=modo==='empresa'?'Costo promedio por salida':'Costo de esta salida';
- last={modalidad:modo,pais,salidas:n,salarioMensual:s,diasVacante:d,antiguedad:a,tipoPuesto:$('tipo').selectedOptions[0].text,tipoSalida,mezclaEstimada:modo==='empresa'?mezclaSalidas:null,conceptosLaborales:componentes,costoLaboralEstimado:laboral,costoOrganizacional:org,costoTotalEstimado:total,exclusiones:'No incluye prestaciones laborales acumuladas o devengadas durante la relación de trabajo.',advertencia:$('nota').textContent};
+ last={modalidad:modo,pais,salidas:n,salarioMensual:s,diasVacante:d,antiguedad:a,tipoPuesto:$('tipo').selectedOptions[0].text,moneda:monedaActual().codigo,tipoSalida,mezclaEstimada:modo==='empresa'?mezclaSalidas:null,conceptosLaborales:componentes,costoLaboralEstimado:laboral,costoOrganizacional:org,costoTotalEstimado:total,exclusiones:'No incluye prestaciones laborales acumuladas o devengadas durante la relación de trabajo.',advertencia:$('nota').textContent};
 }
 function setModo(m){modo=m;$('empresaBtn').classList.toggle('active',m==='empresa');$('puestoBtn').classList.toggle('active',m==='puesto');$('empresaFields').classList.toggle('hidden',m!=='empresa');$('puestoFields').classList.toggle('hidden',m!=='puesto');$('rotacionRow').classList.toggle('hidden',m!=='empresa');calc()}
-$('empresaBtn').onclick=()=>setModo('empresa');$('puestoBtn').onclick=()=>setModo('puesto');document.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',calc));
+$('empresaBtn').onclick=()=>setModo('empresa');$('puestoBtn').onclick=()=>setModo('puesto');document.querySelectorAll('input,select').forEach(el=>{if(el.id!=='pais')el.addEventListener('input',calc)});$('pais').addEventListener('change',actualizarMoneda);
 
 $('analizar').onclick=async()=>{
   const btn=$('analizar'),box=$('analisis');
@@ -155,5 +175,5 @@ $('analizar').onclick=async()=>{
     btn.textContent='✦ Obtener análisis y recomendaciones con IA';
   }
 };
-calc();
+actualizarMoneda();
 </script></body></html>
