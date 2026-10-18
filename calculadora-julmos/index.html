@@ -1,11 +1,20 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculadora de rotación de talento | Julmos</title><style>
-:root{font-family:Arial,Helvetica,sans-serif;color:#242424;background:#f6f6f6}*{box-sizing:border-box}body{margin:0;padding:24px}main{max-width:830px;margin:auto;background:#fff;border:1px solid #e8e8e8;border-radius:20px;padding:30px;box-shadow:0 8px 32px #0000000b}.brand{color:#b71927;font-size:13px;font-weight:800;letter-spacing:1px}.motto{font-size:10px;color:#777;letter-spacing:1.5px;margin-top:6px}h1{font-size:clamp(25px,4vw,35px);line-height:1.15;margin:24px 0 8px}p{line-height:1.5;color:#666}.tabs{display:flex;gap:8px;margin:25px 0;background:#f2f2f2;padding:5px;border-radius:12px}.tabs button{flex:1;border:0;padding:14px;border-radius:9px;background:transparent;font-weight:700;cursor:pointer}.tabs button.active{background:#b71927;color:white}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}label{display:block;font-size:13px;font-weight:700;margin:13px 0 7px}input,select{width:100%;padding:13px;border:1px solid #d6d6d6;border-radius:9px;font-size:15px;background:white}.results{background:#f6f6f6;border-radius:16px;padding:24px;margin-top:26px}.big{font-size:clamp(34px,6vw,48px);font-weight:800;margin:8px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}.stat{background:white;padding:15px;border-radius:10px}.stat strong{font-size:23px;display:block;margin-top:5px}.muted{font-size:12px;color:#666}.line{display:flex;justify-content:space-between;gap:16px;border-top:1px solid #ddd;padding:13px 0;font-size:14px}.line strong{text-align:right}.warning{font-size:12px;color:#666;line-height:1.55}.primary{width:100%;background:#b71927;color:#fff;border:0;padding:15px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;margin-top:15px}.primary:disabled{opacity:.6}.analysis{white-space:pre-wrap;background:#fff;border-left:4px solid #b71927;padding:18px;margin-top:16px;line-height:1.6}.cta{margin-top:26px;text-align:center;padding:24px;border:1px solid #eee;border-radius:12px}.cta a{color:#b71927;font-weight:700}.hidden{display:none}@media(max-width:600px){body{padding:8px}main{padding:20px}.grid,.stats{grid-template-columns:1fr}}
+:root{font-family:Arial,Helvetica,sans-serif;color:#242424;background:#f6f6f6}*{box-sizing:border-box}body{margin:0;padding:24px}main{max-width:830px;margin:auto;background:#fff;border:1px solid #e8e8e8;border-radius:20px;padding:30px;box-shadow:0 8px 32px #0000000b}.brand{color:#b71927;font-size:13px;font-weight:800;letter-spacing:1px}.motto{font-size:10px;color:#777;letter-spacing:1.5px;margin-top:6px}h1{font-size:clamp(25px,4vw,35px);line-height:1.15;margin:24px 0 8px}p{line-height:1.5;color:#666}.tabs{display:flex;gap:8px;margin:25px 0;background:#f2f2f2;padding:5px;border-radius:12px}.tabs button{flex:1;border:0;padding:14px;border-radius:9px;background:transparent;font-weight:700;cursor:pointer}.tabs button.active{background:#b71927;color:white}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}label{display:block;font-size:13px;font-weight:700;margin:13px 0 7px}input,select{width:100%;padding:13px;border:1px solid #d6d6d6;border-radius:9px;font-size:15px;background:white}.results{background:#f6f6f6;border-radius:16px;padding:24px;margin-top:26px}.big{font-size:clamp(34px,6vw,48px);font-weight:800;margin:8px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}.stat{background:white;padding:15px;border-radius:10px}.stat strong{font-size:23px;display:block;margin-top:5px}.muted{font-size:12px;color:#666}.line{display:flex;justify-content:space-between;gap:16px;border-top:1px solid #ddd;padding:13px 0;font-size:14px}.line strong{text-align:right}.warning{font-size:12px;color:#666;line-height:1.55}.primary{width:100%;background:#b71927;color:#fff;border:0;padding:15px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;margin-top:15px}.primary:disabled{opacity:.6}.analysis{white-space:pre-wrap;background:#fff;border-left:4px solid #b71927;padding:18px;margin-top:16px;line-height:1.6}.cta{margin-top:26px;text-align:center;padding:24px;border:1px solid #eee;border-radius:12px}.cta a{color:#b71927;font-weight:700}.detalle{margin-top:18px;border:1px solid #e5e5e5;border-radius:12px;padding:20px}.detalle>strong{color:#b71927}.detalle .line{font-size:12px}.detalle .line span:first-child{flex:0 0 34%}.detalle .line span:last-child{flex:1;color:#555;line-height:1.5}.detalle .line strong{font-size:12px;max-width:56%}.hidden{display:none}@media(max-width:600px){body{padding:8px}main{padding:20px}.grid,.stats{grid-template-columns:1fr}}
 </style></head><body><main><div class="brand">JULMOS CONSULTORES</div><div class="motto">Desciframos el código genético de tu organización</div><h1>¿Sabes cuánto le cuesta la rotación de talento a tu empresa?</h1><p>Descúbrelo gratis en menos de 2 minutos. Sin registro.</p><div class="tabs"><button class="active" id="empresaBtn">Toda mi empresa</button><button id="puestoBtn">Una posición</button></div>
 <label for="pais">¿En qué país está tu empresa?</label><select id="pais"><option>Panamá</option><option>Costa Rica</option><option>El Salvador</option><option>Guatemala</option><option>Honduras</option><option>Nicaragua</option><option>Colombia</option><option>República Dominicana</option><option value="ninguno">Sin definir país</option></select>
 <div id="empresaFields" class="grid"><div><label for="colaboradores">Número de colaboradores</label><input id="colaboradores" type="number" min="1" value="100"></div><div><label for="salidas">Salidas durante el último año</label><input id="salidas" type="number" min="0" value="20"></div></div>
 <div class="grid"><div><label for="tipo">Tipo de posición predominante</label><select id="tipo"><option value="administrativa">Administrativa</option><option value="comercial">Comercial / Ventas</option><option value="operativa">Operativa</option><option value="tecnica">Técnica / Especializada</option><option value="gerencial">Gerencial / Directiva</option></select></div><div><label for="salario">Salario mensual promedio (USD)</label><input id="salario" type="number" min="0" value="1500"></div><div><label for="dias">Días promedio para cubrir vacante</label><input id="dias" type="number" min="0" value="30"></div><div><label for="antiguedad">Antigüedad promedio (años)</label><input id="antiguedad" type="number" min="0" step="0.5" value="3"></div></div>
-<div id="puestoFields" class="hidden"><label for="salidaTipo">Tipo de salida</label><select id="salidaTipo"><option value="renuncia">Renuncia voluntaria</option><option value="despido">Despido</option><option value="fin">Fin de contrato</option></select></div>
-<div class="results"><div class="muted" id="totalLabel">COSTO TOTAL ESTIMADO ANUAL DE ROTACIÓN</div><div class="big" id="total">—</div><div class="stats"><div class="stat"><span class="muted">Costo organizacional</span><strong id="org">—</strong></div><div class="stat"><span class="muted" id="avgLabel">Costo promedio por salida</span><strong id="avg">—</strong></div></div><div class="line"><span>Costo laboral estimado por salida</span><strong id="laboral">—</strong></div><div class="line"><span>Reclutamiento y selección</span><strong id="recluta">—</strong></div><div class="line"><span>Productividad perdida durante vacante</span><strong id="productividad">—</strong></div><div class="line"><span>Adaptación del reemplazo</span><strong id="adaptacion">—</strong></div><div class="line" id="rotacionRow"><span>Tasa anual de rotación</span><strong id="rotacion">—</strong></div><p class="warning" id="nota"></p></div>
+<div id="puestoFields" class="hidden"><label for="salidaTipo">Tipo de salida</label><select id="salidaTipo"><option value="voluntaria">Salida voluntaria</option><option value="involuntaria">Salida involuntaria</option></select></div>
+<div class="results"><div class="muted" id="totalLabel">COSTO TOTAL ESTIMADO ANUAL DE ROTACIÓN</div><div class="big" id="total">—</div><div class="stats"><div class="stat"><span class="muted">Costo organizacional</span><strong id="org">—</strong></div><div class="stat"><span class="muted" id="avgLabel">Costo promedio por salida</span><strong id="avg">—</strong></div></div><div class="line"><span id="laboralLabel">Costo laboral estimado por salida</span><strong id="laboral">—</strong></div><div class="line"><span>Reclutamiento y selección</span><strong id="recluta">—</strong></div><div class="line"><span>Productividad perdida durante vacante</span><strong id="productividad">—</strong></div><div class="line"><span>Adaptación del reemplazo</span><strong id="adaptacion">—</strong></div><div class="line" id="rotacionRow"><span>Tasa anual de rotación</span><strong id="rotacion">—</strong></div><p class="warning" id="nota"></p></div>
+<section class="detalle" aria-label="Qué incluye esta estimación">
+<strong>¿Qué incluye esta estimación?</strong>
+<div class="line"><span><b>Costos laborales de terminación</b></span><span>Compensaciones e indemnizaciones aplicables según el país y el tipo de salida. No se consideran las prestaciones laborales acumuladas o devengadas durante la relación de trabajo, cuyo pago corresponde independientemente de la causa de terminación.</span></div>
+<div class="line"><span><b>Reclutamiento y selección</b></span><span>Costos asociados a la búsqueda, evaluación y contratación del talento de reemplazo.</span></div>
+<div class="line"><span><b>Productividad perdida</b></span><span>Impacto estimado de la vacante en la operación, considerando el tiempo necesario para cubrirla y el tipo de posición.</span></div>
+<div class="line"><span><b>Adaptación del reemplazo</b></span><span>Costos asociados a la incorporación, capacitación inicial y curva de aprendizaje del nuevo colaborador.</span></div>
+<p class="warning">Los resultados son estimaciones orientativas basadas en supuestos del modelo Julmos. No constituyen una liquidación laboral ni una valoración financiera exacta. Los importes se presentan en USD; ingresa el salario convertido a USD cuando corresponda.</p>
+<p id="desgloseTipo" class="hidden"></p><div id="desgloseLaboral" class="hidden"></div>
+</section>
 
 <div style="margin-top:16px;padding:14px 16px;background:#f6f6f6;border-left:3px solid #b71927;border-radius:6px;font-size:12px;line-height:1.6;color:#555;">
   <strong>Nota metodológica</strong>
@@ -14,66 +23,107 @@
 <button class="primary" id="analizar">✦ Obtener análisis y recomendaciones con IA</button><div class="analysis hidden" id="analisis" aria-live="polite"></div><div class="cta"><strong>¿Quieres reducir el costo de perder talento?</strong><p>Conversemos sobre cómo Julmos puede ayudarte.</p><a href="https://www.julmos.com/" target="_blank" rel="noopener">Conoce Julmos Consultores ↗</a></div></main>
 <script>
 const $=id=>document.getElementById(id);let modo='empresa',last={};const tasas={administrativa:.35,comercial:.65,operativa:.5,tecnica:.6,gerencial:.7};const usd=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n);const val=id=>Math.max(0,Number($(id).value)||0);
-// SUPUESTOS JULMOS (NO SON TARIFAS LEGALES): porcentajes de salidas y aproximaciones
-// expresadas en meses de salario. Se excluyen derechos devengados ya provisionados,
-// como vacaciones, aguinaldos y cesantías acumuladas, para evitar doble conteo.
-const mezclaSalidas={renuncia:.60,despido:.30,fin:.10};
-// Parámetros orientativos de exposición económica por desvinculación, NO fórmulas
-// de liquidación. Los topes evitan extrapolaciones poco realistas para larga antigüedad.
-// despidoBase: meses fijos; despidoAnual: meses adicionales por año de servicio.
-const modelosPais={
-  'Panamá':{despidoBase:.5,despidoAnual:.25,limite:7},
-  'Costa Rica':{despidoBase:.5,despidoAnual:.65,limite:8},
-  'El Salvador':{despidoBase:0,despidoAnual:1,limite:10},
-  'Guatemala':{despidoBase:0,despidoAnual:1,limite:12},
-  'Honduras':{despidoBase:.5,despidoAnual:.85,limite:12},
-  'Nicaragua':{despidoBase:0,despidoAnual:.85,limite:5},
-  'Colombia':{despidoBase:1,despidoAnual:.65,limite:12},
-  'República Dominicana':{despidoBase:.45,despidoAnual:.72,limite:12}
-};
-function costoLaboralPorPersona(pais,salario,antiguedad,tipoSalida){
-  const modelo=modelosPais[pais];
-  if(!modelo)return null;
-  // Prima panameña aproximada: 1 semana por año, aplicable como componente ilustrativo.
-  const primaPanama=pais==='Panamá'?(salario*12/52)*antiguedad:0;
-  // No suponemos indemnización por renuncia ni por finalización regular de contrato.
-  // Despido se interpreta como despido con responsabilidad patronal (escenario de costo).
-  const adicionalDespido=salario*Math.min(modelo.limite,
-    modelo.despidoBase+modelo.despidoAnual*Math.max(0,antiguedad));
-  if(tipoSalida==='despido')return primaPanama+adicionalDespido;
-  return primaPanama;
+// Estimación orientativa para contratos indefinidos ordinarios, despido sin justa causa.
+// Los salarios se introducen en USD; no se realiza conversión de moneda.
+// La modalidad empresa usa una mezcla HIPOTÉTICA, no una tasa estadística observada.
+const mezclaSalidas={voluntaria:.70,involuntaria:.30};
+const dias=(s,n)=>s*n/30;
+const semanas=(s,n)=>s*12*n/52;
+function conceptosPais(pais,s,a,tipo){
+  if(pais==='ninguno')return null;
+  const invol=tipo==='involuntaria', c=[];
+  const add=(nombre,valor,explicacion)=>{if(valor>0)c.push({nombre,valor,explicacion});};
+  switch(pais){
+    case 'Panamá':
+      add('Prima de antigüedad',semanas(s,a),'1 semana de salario por año; aplica a ambas salidas (contrato indefinido).');
+      if(invol)add('Indemnización por despido injustificado',semanas(s,3.4*Math.min(a,10)+Math.max(0,a-10)),'3.4 semanas por año durante los primeros 10 años y 1 semana adicional por año posterior.');
+      break;
+    case 'Costa Rica':
+      if(invol){
+        let ces=0;
+        if(a>=.25&&a<.5)ces=7;
+        else if(a>=.5&&a<1)ces=14;
+        else if(a>=1)ces=Math.min(a,8)*20; // 20 días/año: simplificación de escala legal variable
+        add('Auxilio de cesantía',dias(s,ces),'Aproximación de 20 días por año (máximo 8 años); escala legal varía según antigüedad.');
+        add('Preaviso sustitutivo',dias(s,a>=1?30:a>=.5?15:a>=.25?7:0),'Se supone que la empresa no otorga el preaviso trabajado.');
+      }
+      break;
+    case 'El Salvador':
+      if(tipo==='voluntaria'){
+        if(a>=2)add('Prestación por renuncia voluntaria',dias(s,15*a),'15 días de salario básico por año desde 2 años; no se aplica el tope salarial sectorial por falta de ese dato.');
+      }else add('Indemnización por despido injustificado',dias(s,30*Math.max(a,0)),'Aproximación de 30 días por año; pueden aplicar mínimos y topes legales.');
+      break;
+    case 'Guatemala':
+      if(invol)add('Indemnización por tiempo servido',s*a,'1 salario mensual por año o fracción proporcional, sin beneficios devengados.');
+      break;
+    case 'Honduras':
+      if(invol){
+        const ces=a<.25?0:a<=.5?10:a<1?20:Math.min(a*30,25*30);
+        add('Auxilio de cesantía',dias(s,ces),'10 días desde 3 meses, 20 días desde 6 meses, luego 1 mes por año; tope ilustrativo 25 meses.');
+        const pre=a>=2?60:a>=1?30:a>=.5?14:a>=.25?7:0;
+        add('Preaviso sustitutivo',dias(s,pre),'Se supone preaviso no trabajado; plazo aproximado según antigüedad.');
+      }else if(a>=15)add('Compensación por renuncia tras 15 años',s*Math.min(a,25)*.35,'35 % del auxilio de cesantía estimado; requiere condiciones legales específicas.');
+      break;
+    case 'Nicaragua':
+      if(invol){
+        const meses=Math.min(5,Math.max(1,Math.min(a,3)+Math.max(0,a-3)*20/30));
+        if(a>0)add('Indemnización por despido sin causa',s*meses,'1 mes por año durante 3 años y 20 días por año adicional; mínimo 1 y máximo 5 meses.');
+      }
+      break;
+    case 'Colombia':
+      if(invol&&a>0)add('Indemnización por despido sin justa causa',dias(s,30+20*Math.max(0,a-1)),'Escenario de contrato indefinido con salario inferior a 10 mínimos: 30 días el primer año y 20 días por año adicional; no evalúa umbral salarial.');
+      break;
+    case 'República Dominicana':
+      if(invol){
+        const ces=a<.25?0:a<.5?6:a<1?13:a<=5?21*a:23*a;
+        add('Auxilio de cesantía',dias(s,ces),'6 o 13 días en los primeros meses; 21 días/año entre 1 y 5 años; 23 días/año después. Aproximación con salario/30.');
+        const pre=a<.25?0:a<.5?7:a<1?14:28;
+        add('Preaviso sustitutivo',dias(s,pre),'Se asume preaviso no trabajado; 7, 14 o 28 días según antigüedad.');
+      }
+      break;
+  }
+  return c;
 }
-function calc(){const n=modo==='empresa'?val('salidas'):1,s=val('salario'),d=val('dias'),a=val('antiguedad'),pais=$('pais').value;
+const sumar=items=>items.reduce((t,x)=>t+x.valor,0);
+function calc(){
+ const n=modo==='empresa'?val('salidas'):1,s=val('salario'),d=val('dias'),a=val('antiguedad'),pais=$('pais').value;
  const tipoSalida=modo==='puesto'?$('salidaTipo').value:'promedio';
- const laboralPersona=tipoSalida==='promedio'?
-   Object.entries(mezclaSalidas).reduce((suma,[tipo,peso])=>suma+peso*(costoLaboralPorPersona(pais,s,a,tipo)||0),0):
-   costoLaboralPorPersona(pais,s,a,tipoSalida);
- const laboral=modelosPais[pais]?n*laboralPersona:null;
+ const vol=conceptosPais(pais,s,a,'voluntaria'),inv=conceptosPais(pais,s,a,'involuntaria');
+ const tienePais=vol!==null&&inv!==null;
+ const laboralPersona=tienePais?(tipoSalida==='promedio'?mezclaSalidas.voluntaria*sumar(vol)+mezclaSalidas.involuntaria*sumar(inv):sumar(tipoSalida==='voluntaria'?vol:inv)):null;
+ const laboral=tienePais?n*laboralPersona:null;
  const recl=n*s*.5,product=n*s*d/30*tasas[$('tipo').value],adap=n*s*.5,org=recl+product+adap;
  const total=org+(laboral||0);
  $('total').textContent=usd(total);$('org').textContent=usd(org);$('avg').textContent=usd(n?total/n:0);
- $('laboral').textContent=laboral===null?'No incluido':usd(laboral);
+ $('laboral').textContent=laboral===null?'No incluido':usd(laboral);$('laboralLabel').textContent=modo==='empresa'?'Costo laboral estimado de todas las salidas':'Costo laboral estimado por salida';
  $('recluta').textContent=usd(recl);$('productividad').textContent=usd(product);$('adaptacion').textContent=usd(adap);
  $('rotacion').textContent=val('colaboradores')?((n/val('colaboradores'))*100).toFixed(1)+'%':'—';
- const mezclaNota=modo==='empresa'?'Se asume una mezcla ilustrativa de salidas: 60% renuncias, 30% despidos con responsabilidad patronal y 10% fines de contrato. ':'Se estima el costo del tipo de salida seleccionado; «despido» supone responsabilidad patronal. ';
- $('nota').textContent=laboral===null?
-   'País sin modelo laboral: no se incluye costo de terminación. Los costos organizacionales son supuestos ilustrativos, no benchmarks validados.':
-   pais+': '+mezclaNota+'El componente laboral utiliza factores simplificados de exposición económica, NO una fórmula legal de liquidación. '+
-   (pais==='Panamá'?'Incluye una aproximación de prima de antigüedad de una semana por año. ':'')+
-   'No incluye vacaciones, aguinaldos, prestaciones acumuladas, indemnizaciones especiales ni circunstancias contractuales particulares. '+
-   'Los factores de reclutamiento (50% del salario mensual), productividad y adaptación (50%) son supuestos del modelo, no benchmarks validados.';
+ const lista=tipoSalida==='promedio'?[...vol||[],...inv||[]]:tipoSalida==='voluntaria'?vol:inv;
+ $('desgloseTipo').textContent=!tienePais?'Sin definir país: no se agrega costo laboral.':tipoSalida==='promedio'?'Toda mi empresa: promedio ilustrativo de 70 % salidas voluntarias y 30 % involuntarias. Cada importe mostrado es el total para las '+n+' salidas.':'Una posición: '+(tipoSalida==='voluntaria'?'salida voluntaria':'salida involuntaria sin causa justificada')+'.';
+ const componentes=[];
+ if(tienePais){
+  const nombres=[...new Set(lista.map(x=>x.nombre))];
+  for(const nombre of nombres){
+   const v=tipoSalida==='promedio'?n*(mezclaSalidas.voluntaria*sumar(vol.filter(x=>x.nombre===nombre))+mezclaSalidas.involuntaria*sumar(inv.filter(x=>x.nombre===nombre))):n*sumar(lista.filter(x=>x.nombre===nombre));
+   const explicacion=lista.find(x=>x.nombre===nombre)?.explicacion||'';
+   componentes.push({nombre,valor:v,explicacion});
+  }
+ }
+ const panel=$('desgloseLaboral');panel.replaceChildren();
+ if(!componentes.length){const p=document.createElement('p');p.className='warning';p.textContent=tienePais?'No se estiman pagos adicionales por terminación para esta modalidad y antigüedad.':'No se calculan indemnizaciones sin país seleccionado.';panel.append(p);}
+ for(const x of componentes){const fila=document.createElement('div');fila.className='line';const izq=document.createElement('span');izq.textContent=x.nombre+' — '+x.explicacion;const der=document.createElement('strong');der.textContent=usd(x.valor);fila.append(izq,der);panel.append(fila);}
+ $('nota').textContent=(tienePais?pais+': ':'')+'Estimación simplificada para contratos indefinidos ordinarios. Salida involuntaria supone despido sin justa causa y pago de preaviso cuando se muestra; no contempla despidos justificados, protecciones especiales, convenios, salarios variables, fondos ya pagados ni otras excepciones. Algunos topes y bases legales requieren datos no solicitados. Los importes no son una liquidación legal.';
  $('totalLabel').textContent=modo==='empresa'?'COSTO TOTAL ESTIMADO ANUAL DE ROTACIÓN':'COSTO TOTAL ESTIMADO DE ESTA SALIDA';
  $('avgLabel').textContent=modo==='empresa'?'Costo promedio por salida':'Costo de esta salida';
- last={modalidad:modo,pais,salidas:n,salarioMensual:s,diasVacante:d,antiguedad:a,tipoPuesto:$('tipo').selectedOptions[0].text,
-   tipoSalida,mezclaEstimada:modo==='empresa'?mezclaSalidas:null,costoLaboralEstimado:laboral,costoOrganizacional:org,
-   costoTotalEstimado:total,advertencia:$('nota').textContent};
-}function setModo(m){modo=m;$('empresaBtn').classList.toggle('active',m==='empresa');$('puestoBtn').classList.toggle('active',m==='puesto');$('empresaFields').classList.toggle('hidden',m!=='empresa');$('puestoFields').classList.toggle('hidden',m!=='puesto');$('rotacionRow').classList.toggle('hidden',m!=='empresa');calc()}
+ last={modalidad:modo,pais,salidas:n,salarioMensual:s,diasVacante:d,antiguedad:a,tipoPuesto:$('tipo').selectedOptions[0].text,tipoSalida,mezclaEstimada:modo==='empresa'?mezclaSalidas:null,conceptosLaborales:componentes,costoLaboralEstimado:laboral,costoOrganizacional:org,costoTotalEstimado:total,exclusiones:'No incluye prestaciones laborales acumuladas o devengadas durante la relación de trabajo.',advertencia:$('nota').textContent};
+}
+function setModo(m){modo=m;$('empresaBtn').classList.toggle('active',m==='empresa');$('puestoBtn').classList.toggle('active',m==='puesto');$('empresaFields').classList.toggle('hidden',m!=='empresa');$('puestoFields').classList.toggle('hidden',m!=='puesto');$('rotacionRow').classList.toggle('hidden',m!=='empresa');calc()}
 $('empresaBtn').onclick=()=>setModo('empresa');$('puestoBtn').onclick=()=>setModo('puesto');document.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',calc));
 
 $('analizar').onclick=async()=>{
   const btn=$('analizar'),box=$('analisis');
   const clave=JSON.stringify(last);
-  const cacheKey='julmos-analisis-v2:'+clave;
+  const cacheKey='julmos-analisis-v4:'+clave;
   const anterior=localStorage.getItem(cacheKey);
 
   box.classList.remove('hidden');
